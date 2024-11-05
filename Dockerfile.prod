@@ -6,7 +6,7 @@ COPY ./go.mod .
 COPY main.go .
 
 RUN go mod download && go mod verify
-RUN go build -v -o /usr/local/bin/golang ./...
+RUN go build -ldflags="-s -w" -v -o /usr/local/bin/golang ./...
 
 FROM scratch
 
