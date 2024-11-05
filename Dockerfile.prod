@@ -7,6 +7,8 @@ COPY main.go .
 
 RUN go mod download && go mod verify
 RUN go build -ldflags="-s -w" -v -o /usr/local/bin/golang ./...
+#-s: Remove a tabela de símbolos.
+#-w: Remove informações de depuração.
 
 FROM scratch
 
